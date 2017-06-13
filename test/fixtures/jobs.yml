@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  weight: 1
+  target_date: 2017-06-13
+  due_date: 2017-06-13
+  effort: 1
+
+two:
+  name: MyString
+  description: MyText
+  weight: 1
+  target_date: 2017-06-13
+  due_date: 2017-06-13
+  effort: 1
