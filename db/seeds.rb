@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+JobStatus.create!(name: "backlog")
+JobStatus.create!(name: "working")
+JobStatus.create!(name: "done")
+JobStatus.create!(name: "delegated")
+JobStatus.create!(name: "waiting")
