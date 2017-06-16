@@ -7,6 +7,7 @@ one:
   target_date: 2017-06-13
   due_date: 2017-06-13
   effort: 1
+  contact: one
 
 two:
   name: MyString

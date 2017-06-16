@@ -2,7 +2,7 @@ require 'test_helper'
 
 class JobStatusesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @job_status = job_statuses(:one)
+    @job_status = job_statuses(:backlog)
   end
 
   test "should get index" do

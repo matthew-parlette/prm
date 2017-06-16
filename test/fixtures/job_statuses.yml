@@ -1,7 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+backlog:
+  name: backlog
 
-two:
-  name: MyString
+working:
+  name: working
+
+done:
+  name: done
+
+delegated:
+  name: delegated
+
+waiting:
+  name: waiting
