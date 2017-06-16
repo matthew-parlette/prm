@@ -1,3 +1,4 @@
 class Job < ApplicationRecord
-  has_one :status, class_name: "JobStatus"
+  belongs_to :status, class_name: "JobStatus"
+  belongs_to :contact, optional: true
 end
