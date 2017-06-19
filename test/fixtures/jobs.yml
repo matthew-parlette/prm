@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
+  name: job one
+  description: this is job one
   weight: 1
   target_date: 2017-06-13
   due_date: 2017-06-13
@@ -10,8 +10,8 @@ one:
   contact: one
 
 two:
-  name: MyString
-  description: MyText
+  name: job two
+  description: this is job two
   weight: 1
   target_date: 2017-06-13
   due_date: 2017-06-13
