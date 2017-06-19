@@ -29,7 +29,6 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
     patch job_url(@job), params: { job: { description: @job.description, due_date: @job.due_date, effort: @job.effort, name: @job.name, target_date: @job.target_date, weight: @job.weight, status_id: JobStatus.last.id } }, as: :json
     assert_response 200
     r = JSON.parse(@response.body)
-    puts r
     assert r["status_id"], "Status should not be nil"
   end
 
@@ -42,9 +41,10 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get jobs for a contact" do
-    get contact_job_url(contacts(:one), jobs(:one)), as: :json
+    get contact_jobs_url(contacts(:one)), as: :json
     assert_response :success
     jobs = JSON.parse(@response.body)
-    assert jobs.count > 0
+    assert jobs.count > 0, "Contact one returned no jobs"
+    assert jobs.count == 1, "Contact one returned multiple jobs, but should only return one"
   end
 end

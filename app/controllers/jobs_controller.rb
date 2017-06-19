@@ -1,9 +1,11 @@
 class JobsController < ApplicationController
+  before_action :set_contact, only: [:index, :show]
   before_action :set_job, only: [:show, :update, :destroy]
 
   # GET /jobs
   def index
-    @jobs = Job.all
+    @jobs = Job.where(contact: @contact) if @contact
+    @jobs = Job.all if @contact.nil?
 
     render json: @jobs
   end
@@ -39,7 +41,14 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_contact
+      if params[:contact_id] then
+        @contact = Contact.find(params[:contact_id])
+      else
+        @contact = nil
+      end
+    end
+
     def set_job
       @job = Job.find(params[:id])
     end
