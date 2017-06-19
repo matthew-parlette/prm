@@ -35,4 +35,12 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response 204
   end
+
+  test "should get contacts for an organization" do
+    get organization_contacts_url(organizations(:one)), as: :json
+    assert_response :success
+    contacts = JSON.parse(@response.body)
+    assert contacts.count > 0, "Organization one returned no contacts"
+    assert contacts.count == 1, "Organization one returned multiple contacts, but should only return one"
+  end
 end

@@ -1,9 +1,11 @@
 class ContactsController < ApplicationController
+  before_action :set_organization, only: [:index, :show]
   before_action :set_contact, only: [:show, :update, :destroy]
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    @contacts = Contact.where(organization: @organization) if @organization
+    @contacts = Contact.all if @organization.nil?
 
     render json: @contacts
   end
@@ -39,7 +41,14 @@ class ContactsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_organization
+      if params[:organization_id] then
+        @organization = Organization.find(params[:organization_id])
+      else
+        @organization = nil
+      end
+    end
+
     def set_contact
       @contact = Contact.find(params[:id])
     end

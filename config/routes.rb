@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :organizations do
+    resources :contacts
+  end
   resources :contacts do
     resources :jobs
   end
